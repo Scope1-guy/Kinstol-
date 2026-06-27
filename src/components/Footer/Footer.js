@@ -44,8 +44,8 @@ const Footer = () => {
             KINSTOL <span>EQUIPMENT & GLOBAL BUSINESS LTD</span>
           </h3>
           <p className="footer-about">
-            A trusted construction and engineering company delivering quality infrastructure,
-            equipment, and land development solutions.
+            A trusted construction and engineering company delivering quality
+            infrastructure, equipment, and land development solutions.
           </p>
           {/* ---------- SOCIAL ICONS ---------- */}
           <div className="footer-socials">
@@ -92,9 +92,9 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Contact Info</h4>
           <ul className="footer-contact-list">
-            <li>📍 123 Engineering Way, Abuja, FCT, Nigeria</li>
-            <li>📞 +234 800 123 4567</li>
-            <li>✉️ info@kinstolequipment.com</li>
+            <li>📍 Block 2, Ewekoro, Ogun State, Nigeria</li>
+            <li>📞 +234 814 693 4439</li>
+            <li>✉️ Tolanikazeem7@gmail.com</li>
           </ul>
         </div>
       </div>
@@ -102,7 +102,14 @@ const Footer = () => {
       {/* ---------- BOTTOM BAR ---------- */}
       <div className="footer-bottom">
         <p>
-          © {currentYear} Kinstol Equipment & Global Business Limited. All Rights Reserved.
+          © {currentYear} Kinstol Equipment & Global Business Limited. All
+          Rights Reserved.
+        </p>
+        <p>
+          Buit by{" "}
+          <a href="https://x.com/The_Guyyy_">
+            Samuel Eniola Olalekan | Big Scope
+          </a>
         </p>
       </div>
     </footer>
