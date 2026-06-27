@@ -1,0 +1,11 @@
+/* =========================================================
+   APP-LEVEL STYLES
+   Most styling lives inside each component's own CSS file
+   (e.g. Hero.css, Services.css). This file only holds styles
+   for the overall page wrapper.
+   ========================================================= */
+
+.App {
+  width: 100%;
+  overflow-x: hidden; /* extra safety net against horizontal scroll on mobile */
+}

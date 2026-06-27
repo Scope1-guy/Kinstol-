@@ -1,0 +1,129 @@
+/* =========================================================
+   CONTACT SECTION STYLES
+   ========================================================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-xl);
+}
+
+/* ---------- CONTACT INFO CARDS ---------- */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  background-color: var(--color-white);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-info-card h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.contact-info-card p {
+  font-size: 0.9rem;
+}
+
+.map-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  line-height: 0; /* removes small gap that iframes sometimes create */
+}
+
+/* ---------- CONTACT FORM ---------- */
+.contact-form {
+  background-color: var(--color-white);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-form h3 {
+  margin-bottom: var(--space-md);
+}
+
+.form-success {
+  background-color: rgba(34, 153, 84, 0.1);
+  color: #1f7a43;
+  padding: var(--space-sm);
+  border-radius: 6px;
+  margin-bottom: var(--space-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 14px;
+  border: 1px solid #dadfe5;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-grey-dark);
+  transition: var(--transition);
+  resize: vertical; /* only allow the textarea to be resized up/down */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* TABLET (≤ 900px) */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* stack info and form vertically */
+  }
+}
+
+/* MOBILE (≤ 560px) */
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr; /* stack name/phone fields */
+  }
+
+  .contact-form {
+    padding: var(--space-md);
+  }
+}

@@ -1,0 +1,89 @@
+/* =========================================================
+   PROJECTS SECTION STYLES
+   ========================================================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row on desktop */
+  gap: var(--space-lg);
+}
+
+.project-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden; /* keeps the image's rounded corners + zoom inside the box */
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-image-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 230px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom-in effect on the image when hovering the card */
+.project-card:hover .project-image {
+  transform: scale(1.08);
+}
+
+.project-category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.project-info {
+  padding: var(--space-md);
+}
+
+.project-info h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* TABLET (≤ 900px): 2 cards per row */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE (≤ 600px): 1 card per row */
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image-wrap {
+    height: 210px;
+  }
+}

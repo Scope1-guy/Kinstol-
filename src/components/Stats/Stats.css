@@ -1,0 +1,77 @@
+/* =========================================================
+   STATISTICS SECTION STYLES
+   ========================================================= */
+
+.stats {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  padding: var(--space-xl) 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.stat-item {
+  padding: var(--space-md);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Removes the divider line after the LAST item in the row */
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-icon {
+  font-size: 1.8rem;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.stat-number {
+  color: var(--color-gold);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* TABLET (≤ 768px): 2 columns instead of 4 */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-lg);
+  }
+
+  /* On 2 columns, only remove border for every 2nd item (right edge) */
+  .stat-item:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+/* MOBILE (≤ 480px): 1 column */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--space-md);
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+}

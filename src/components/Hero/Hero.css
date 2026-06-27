@@ -1,0 +1,132 @@
+/* =========================================================
+   HERO SECTION STYLES
+   ========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh; /* Takes up the full height of the screen */
+  display: flex;
+  align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+/* Dark navy gradient overlay so text is readable over the photo */
+.hero-overlay {
+  position: absolute;
+  inset: 0; /* shorthand for top/right/bottom/left: 0 */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 31, 68, 0.85) 0%,
+    rgba(10, 31, 68, 0.75) 50%,
+    rgba(10, 31, 68, 0.92) 100%
+  );
+}
+
+.hero-content {
+  position: relative; /* sits ABOVE the overlay because of z-index stacking */
+  z-index: 2;
+  max-width: 800px;
+  padding-top: 100px;
+}
+
+.hero-tag {
+  display: inline-block;
+  color: var(--color-gold);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.hero-title {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.hero-slogan {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: var(--space-lg);
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* Small animated mouse-scroll indicator at the bottom of the hero */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  z-index: 2;
+}
+
+.hero-scroll-indicator span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  margin: 6px auto;
+  animation: scrollDown 1.6s infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* TABLET */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 92vh;
+    background-attachment: scroll; /* fixed attachment can cause issues on mobile browsers */
+  }
+
+  .hero-content {
+    padding-top: 80px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .hero-scroll-indicator {
+    display: none; /* hide on very small screens to save space */
+  }
+}

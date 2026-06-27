@@ -1,0 +1,94 @@
+/* =========================================================
+   SPONSORSHIP & PARTNERSHIP SECTION STYLES
+   ========================================================= */
+
+.sponsorship {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+}
+
+.sponsorship-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.sponsorship-text .section-header {
+  text-align: left; /* override the default centered section header for this section */
+  margin: 0 0 var(--space-md) 0;
+  max-width: 100%;
+}
+
+.sponsorship-description {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--space-md);
+}
+
+.sponsorship-list {
+  margin-bottom: var(--space-lg);
+}
+
+.sponsorship-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+  font-size: 0.95rem;
+}
+
+.check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+  border-radius: 50%;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.sponsorship-image-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.sponsorship-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 320px;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* TABLET (≤ 900px) */
+@media (max-width: 900px) {
+  .sponsorship-grid {
+    grid-template-columns: 1fr; /* stack text above image */
+  }
+
+  .sponsorship-image-wrap {
+    order: -1; /* show image FIRST on smaller screens for visual interest */
+  }
+
+  .sponsorship-text .section-header {
+    text-align: center;
+  }
+
+  .sponsorship-list li {
+    justify-content: center;
+  }
+
+  .sponsorship-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

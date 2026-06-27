@@ -1,0 +1,214 @@
+/* =========================================================
+   NAVBAR STYLES
+   ========================================================= */
+
+.navbar {
+  position: fixed; /* Keeps the navbar stuck to the top of the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Makes sure navbar stays above all other content */
+  background-color: transparent;
+  transition: var(--transition);
+  padding: 18px 0;
+}
+
+/* Applied once the user scrolls down (controlled by isScrolled state in JS) */
+.navbar-scrolled {
+  background-color: var(--color-navy);
+  box-shadow: var(--shadow-md);
+  padding: 10px 0;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+/* ---------- LOGO ---------- */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-white);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.logo-text-sub {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.62rem;
+  color: var(--color-gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ---------- DESKTOP LINKS ---------- */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.navbar-link {
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 6px 2px;
+  transition: var(--transition);
+}
+
+/* Underline animation on hover */
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-gold);
+  transition: var(--transition);
+}
+
+.navbar-link:hover {
+  color: var(--color-gold);
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-cta {
+  flex-shrink: 0;
+  padding: 10px 24px;
+}
+
+/* ---------- HAMBURGER (hidden on desktop) ---------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  flex-shrink: 0;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  height: 2.5px;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* Turns the 3 bars into an "X" shape when the menu is open */
+.hamburger-active span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.hamburger-active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-active span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* ---------- MOBILE DROPDOWN MENU ---------- */
+.mobile-menu {
+  display: none; /* Hidden by default; we override on mobile below */
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* TABLET AND BELOW (≤ 992px): hide desktop links, show hamburger */
+@media (max-width: 992px) {
+  .navbar-links,
+  .navbar-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(75%, 320px);
+    background-color: var(--color-navy);
+    padding: 100px var(--space-lg) var(--space-lg);
+    gap: var(--space-md);
+    transform: translateX(100%); /* Hidden off-screen to the right */
+    transition: transform 0.35s ease;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Slides the menu into view */
+  .mobile-menu-open {
+    transform: translateX(0%);
+  }
+
+  .mobile-link {
+    color: var(--color-white);
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-cta {
+    margin-top: var(--space-sm);
+    text-align: center;
+  }
+
+  .logo-text-sub {
+    display: none; /* Hide the long subtitle on smaller screens to save space */
+  }
+}
+
+/* SMALL MOBILE (≤ 480px) */
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 0.9rem;
+  }
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}

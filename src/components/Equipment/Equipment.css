@@ -1,0 +1,119 @@
+/* =========================================================
+   EQUIPMENT SECTION STYLES
+   ========================================================= */
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.equipment-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.equipment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.equipment-image-wrap {
+  height: 200px;
+  overflow: hidden;
+}
+
+.equipment-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.equipment-card:hover .equipment-image {
+  transform: scale(1.06);
+}
+
+.equipment-info {
+  padding: var(--space-md);
+}
+
+.equipment-info-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.equipment-info-top h3 {
+  font-size: 1.05rem;
+}
+
+.equipment-availability {
+  background-color: rgba(10, 31, 68, 0.08);
+  color: var(--color-navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.equipment-info p {
+  font-size: 0.88rem;
+}
+
+/* ---------- BANNER ---------- */
+.equipment-banner {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  border-radius: var(--radius);
+  padding: var(--space-lg) var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.equipment-banner-text h3 {
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.equipment-banner-text p {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 560px;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* TABLET (≤ 900px) */
+@media (max-width: 900px) {
+  .equipment-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .equipment-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-lg);
+  }
+
+  .equipment-banner-text p {
+    max-width: 100%;
+  }
+}
+
+/* MOBILE (≤ 600px) */
+@media (max-width: 600px) {
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+}

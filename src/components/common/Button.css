@@ -1,0 +1,8 @@
+/* The main button styles (.btn, .btn-primary, .btn-outline, .btn-outline-dark)
+   live in src/index.css because they are used GLOBALLY across many sections.
+   This file is kept here in case you want to add button styles that should
+   ONLY apply to this specific Button component. */
+
+.btn {
+  cursor: pointer;
+}

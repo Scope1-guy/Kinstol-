@@ -1,0 +1,217 @@
+/* =========================================================
+   GLOBAL STYLES
+   This file holds styles that apply to the ENTIRE website:
+   - CSS variables (colors, fonts, spacing) used everywhere
+   - A "CSS reset" so every browser looks the same
+   - Base typography (headings, paragraphs, links, buttons)
+   ========================================================= */
+
+/* -----------------------------
+   1. CSS VARIABLES (THEME)
+   Change these values to re-theme the WHOLE website at once.
+   ----------------------------- */
+:root {
+  /* Brand colors - Construction / Engineering theme */
+  --color-navy: #0a1f44; /* Dark blue - primary brand color */
+  --color-navy-light: #112b5e; /* Slightly lighter navy for gradients */
+  --color-gold: #d4af37; /* Gold - accent color (CTA buttons, highlights) */
+  --color-gold-dark: #b8932c; /* Darker gold for hover states */
+  --color-white: #ffffff;
+  --color-grey-light: #f5f6f8; /* Light grey section backgrounds */
+  --color-grey: #6b7280; /* Grey text */
+  --color-grey-dark: #3a3f47; /* Darker grey for body text */
+  --color-black: #15171a;
+
+  /* Typography */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Spacing scale - used for consistent gaps/padding across components */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-xxl: 6rem;
+
+  /* Shared values */
+  --radius: 10px;
+  --shadow-sm: 0 2px 8px rgba(10, 31, 68, 0.08);
+  --shadow-md: 0 8px 24px rgba(10, 31, 68, 0.12);
+  --shadow-lg: 0 16px 40px rgba(10, 31, 68, 0.18);
+  --transition: all 0.3s ease;
+  --max-width: 1200px;
+}
+
+/* -----------------------------
+   2. RESET
+   Removes default browser spacing/styles so design is consistent.
+   ----------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Enables "Smooth Scrolling" when clicking navbar links like #about */
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Prevents navbar from covering section titles when jumping to a section */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-grey-dark);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* Stops accidental horizontal scrollbars on mobile */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* -----------------------------
+   3. BASE TYPOGRAPHY
+   ----------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem); /* clamp() = responsive font size without media queries */
+}
+
+h2 {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+p {
+  font-size: 1rem;
+  color: var(--color-grey);
+}
+
+/* -----------------------------
+   4. SHARED UTILITY CLASSES
+   Reusable helper classes so we don't repeat the same CSS everywhere.
+   ----------------------------- */
+
+/* Centers content and limits its width on big screens */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Standard vertical spacing for every section on the page */
+.section {
+  padding: var(--space-xxl) 0;
+}
+
+.section-grey {
+  background-color: var(--color-grey-light);
+}
+
+/* Small gold label shown above section titles, e.g. "OUR SERVICES" */
+.section-tag {
+  display: inline-block;
+  color: var(--color-gold-dark);
+  background: rgba(212, 175, 55, 0.12);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: var(--space-sm);
+}
+
+/* Header block used at the top of most sections (tag + title + description) */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--space-xl) auto;
+}
+
+.section-header p {
+  margin-top: var(--space-sm);
+}
+
+/* Generic button styles - reused by the Button component */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold-dark);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  transform: translateY(-3px);
+}
+
+/* Used on light backgrounds (e.g. inside Contact section) */
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--color-navy);
+  border: 2px solid var(--color-navy);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
